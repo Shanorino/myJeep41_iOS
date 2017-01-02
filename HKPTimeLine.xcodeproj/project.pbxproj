@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3457B5371E1550B1006A7443 /* libPods-HKPTimeLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3457B5341E154F14006A7443 /* libPods-HKPTimeLine.a */; };
+		34AB0F451E1987C100B56C64 /* PostlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AB0F441E1987C100B56C64 /* PostlistViewController.m */; };
 		8BBC94311DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC94301DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.m */; };
 		8BBC94321DE72AA200C2CD26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */; };
 		8BBC94351DE7339300C2CD26 /* WYWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC94341DE7339300C2CD26 /* WYWebProgressLayer.m */; };
@@ -54,6 +55,8 @@
 		341443EC1E14355D005C7716 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		341443EF1E143711005C7716 /* SDWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SDWebImage; path = Pods/Headers/Public/SDWebImage; sourceTree = "<group>"; };
 		3457B5341E154F14006A7443 /* libPods-HKPTimeLine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-HKPTimeLine.a"; path = "../../Users/shane/Library/Developer/Xcode/DerivedData/HKPTimeLine-aaqjnhyeucyxnhaqrifsbvwethkz/Build/Products/Debug-iphonesimulator/libPods-HKPTimeLine.a"; sourceTree = "<group>"; };
+		34AB0F431E19876F00B56C64 /* PostlistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostlistViewController.h; sourceTree = "<group>"; };
+		34AB0F441E1987C100B56C64 /* PostlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostlistViewController.m; sourceTree = "<group>"; };
 		8BBC942F1DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JeepArticleDetailViewViewController.h; sourceTree = "<group>"; };
 		8BBC94301DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JeepArticleDetailViewViewController.m; sourceTree = "<group>"; };
 		8BBC94331DE7339300C2CD26 /* WYWebProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWebProgressLayer.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				8BC767C51E12BE0C009FF531 /* ForumViewController.m */,
 				8BC767C71E12C02E009FF531 /* AboutUsViewController.h */,
 				8BC767C81E12C02E009FF531 /* AboutUsViewController.m */,
+				34AB0F431E19876F00B56C64 /* PostlistViewController.h */,
+				34AB0F441E1987C100B56C64 /* PostlistViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AB0F451E1987C100B56C64 /* PostlistViewController.m in Sources */,
 				AC1CBFA41D91154000FB8DD8 /* CellForWorkGroupRepost.m in Sources */,
 				8BC767C31E12B56E009FF531 /* UserMenuViewController.m in Sources */,
 				AC1CBF741D90CD2100FB8DD8 /* YHWorkGroupButton.m in Sources */,

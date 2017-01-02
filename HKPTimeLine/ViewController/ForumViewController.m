@@ -8,6 +8,7 @@
 
 #import "ForumViewController.h"
 #import "YHRefreshTableView.h"
+#import "UIViewController+MMDrawerController.h"
 
 
 @interface ForumViewController() <UITableViewDelegate,UITableViewDataSource>
@@ -96,12 +97,12 @@
     // 如果队列中cell为空，即无复用的cell，则对其进行初始化
     if (cell==nil) {
         // 初始化
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] ;
         // 定义其辅助样式
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     cell.textLabel.text = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumname"];
-    cell.detailTextLabel.text = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumname"];
+    //cell.detailTextLabel.text = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumname"];
     [cell.imageView setImage:[UIImage imageNamed:@"forumicon.png"]];
     
     return cell;
@@ -119,6 +120,16 @@
     return [_dataArray count];//返回标题数组中元素的个数来确定分区的个数
 }
 
+#pragma mark - UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //UIViewController *view = nil;
+    NSString* forumid=[[[[_dataArray objectAtIndex:indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumid"];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:forumid delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    //[alert show];
+    //拿到我们的LitterLCenterViewController，让它去push
+    //UINavigationController* nav = (UINavigationController*)self.mm_drawerController.centerViewController;
+    //[nav pushViewController:view animated:NO];
+}
 #pragma mark - 网络请求
 - (void)requestDataLoadNew{
     YHRefreshType refreshType;
