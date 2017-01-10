@@ -1,14 +1,15 @@
 //
-//  CellForTopic.m
-//  
+//  CellForTopicFollow.m
+//  HKPTimeLine
 //
-//  Created by jokerking on 17/1/8.
-//
+//  Created by jokerking on 17/1/10.
+//  Copyright © 2017年 YHSoft. All rights reserved.
 //
 
-#import "CellForTopic.h"
+#import "CellForTopicFollow.h"
 
-@interface CellForTopic() 
+
+@interface CellForTopicFollow()
 @property (nonatomic,strong)UIImageView *imgvAvatar;
 @property (nonatomic,strong)UILabel     *labelName;
 @property (nonatomic,strong)UILabel     *labelPostTime;
@@ -16,7 +17,7 @@
 @property (nonatomic,strong)UIView      *viewSeparator;
 @end
 
-@implementation CellForTopic
+@implementation CellForTopicFollow
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -44,6 +45,7 @@
     [self.contentView addSubview: self.labelPostTime];
     
     self.labelContent = [UILabel new];
+    self.labelContent.userInteractionEnabled = YES;
     self.labelContent.font = [UIFont systemFontOfSize:14.0f];
     self.labelContent.numberOfLines = 0;
     [self.contentView addSubview: self.labelContent];
@@ -58,12 +60,12 @@
 -(void) layoutUI{
     __weak typeof(self) weakSelf = self;
     [self.imgvAvatar mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.top.equalTo(weakSelf.contentView).offset(10);
-        make.left.equalTo(weakSelf.contentView).offset(10);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(30);
-    }];
+     {
+         make.top.equalTo(weakSelf.contentView).offset(10);
+         make.left.equalTo(weakSelf.contentView).offset(10);
+         make.width.mas_equalTo(30);
+         make.height.mas_equalTo(30);
+     }];
     
     [self.labelName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.contentView).offset(10);
@@ -84,9 +86,9 @@
     
     [self.labelContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.imgvAvatar.mas_bottom).offset(5);
-        make.left.equalTo(weakSelf.contentView).offset(10);
+        make.left.equalTo(weakSelf.imgvAvatar.mas_right).offset(10);
         make.right.equalTo(weakSelf.contentView).offset(-10);
-        make.width.mas_equalTo(weakSelf.contentView.frame.size.width - 20);
+        make.width.mas_equalTo(weakSelf.contentView.frame.size.width - 60);
         make.height.mas_equalTo(100);
     }];
     
@@ -116,8 +118,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
-
 @end

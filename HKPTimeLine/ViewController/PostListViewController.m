@@ -58,7 +58,7 @@
     
     self.view.backgroundColor = RGBCOLOR(244, 244, 244);
     
-    self.tableView = [[YHRefreshTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[YHRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-52) style:UITableViewStylePlain];
     self.tableView.delegate   = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = RGBCOLOR(244, 244, 244);

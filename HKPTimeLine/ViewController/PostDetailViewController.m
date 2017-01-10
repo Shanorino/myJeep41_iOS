@@ -11,7 +11,7 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "UIViewController+MMDrawerController.h"
 #import "CellForTopic.h"
-
+#import "CellForTopicFollow.h"
 
 @interface PostDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -52,15 +52,19 @@
     NSDictionary *attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
     self.navigationController.navigationBar.titleTextAttributes = attributes;
     
-    self.view.backgroundColor =  RGBCOLOR(244, 244, 244);
+    self.view.backgroundColor =  [UIColor redColor];
     
-    self.tableView = [[YHRefreshTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[YHRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-52) style:UITableViewStylePlain];
     self.tableView.delegate   = self;
     self.tableView.dataSource = self;
+    [self.tableView setEnableLoadNew:YES];
+    [self.tableView setEnableLoadMore:YES];
+    
     self.tableView.backgroundColor = RGBCOLOR(244, 244, 244);
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     [self.view addSubview: _tableView];
     [self.tableView registerClass:[CellForTopic class] forCellReuseIdentifier:NSStringFromClass([CellForTopic class])];
+    [self.tableView registerClass:[CellForTopicFollow class] forCellReuseIdentifier:NSStringFromClass([CellForTopicFollow class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,13 +88,23 @@
     Class currentClass  = [CellForTopic class];
     NSDictionary *model  = self.dataArray[indexPath.row];
     
-    cell  = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(currentClass)];
-    
-    CellForTopic  *cell1 = nil;//原创
-    cell1 = (CellForTopic *)cell;
-    cell1.indexPath = indexPath;
-    cell1.model = model;
-    return cell1;
+    if(indexPath.row == 0){
+        cell  = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(currentClass)];
+        CellForTopic  *cell1 = nil;//楼主
+        cell1 = (CellForTopic *)cell;
+        cell1.indexPath = indexPath;
+        cell1.model = model;
+        return cell1;
+    }
+    else{
+        currentClass = [CellForTopicFollow class];
+        cell  = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(currentClass)];
+        CellForTopicFollow  *cell1 = nil;//跟帖
+        cell1 = (CellForTopicFollow *)cell;
+        cell1.indexPath = indexPath;
+        cell1.model = model;
+        return cell1;
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -103,9 +117,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.row < self.dataArray.count) {
-        return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopic" configuration:^(CellForTopic *cell) {
+        if(indexPath.row == 0){
+            return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopic" configuration:^(CellForTopic *cell) {
+                [self configureOriCell:cell atIndexPath:indexPath];
+                }];
+        }
+        else{
+            return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopicFollow" configuration:^(CellForTopicFollow *cell) {
                 [self configureOriCell:cell atIndexPath:indexPath];
             }];
+        }
     }
     else{
         return 20.0f;
@@ -113,6 +134,15 @@
 }
 
 - (void)configureOriCell:(CellForTopic *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
+    if (indexPath.row < _dataArray.count) {
+        cell.model = _dataArray[indexPath.row];
+    }
+    
+}
+
+- (void)configureOriFollowCell:(CellForTopicFollow *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
     if (indexPath.row < _dataArray.count) {
@@ -175,6 +205,10 @@
 
 #pragma mark - YHRefreshTableViewDelegate
 - (void)refreshTableViewLoadNew:(YHRefreshTableView*)view{
+    [self requestDataLoadNew:_topicId];
+}
+
+- (void)refreshTableViewLoadmore:(YHRefreshTableView*)view{
     [self requestDataLoadNew:_topicId];
 }
 

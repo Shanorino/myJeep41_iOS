@@ -27,6 +27,7 @@
 		8BE559961E2524E800F72F08 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559911E2524E800F72F08 /* LoginViewController.m */; };
 		8BE559971E2524E800F72F08 /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559931E2524E800F72F08 /* PostDetailViewController.m */; };
 		8BE559981E2524E800F72F08 /* PostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559951E2524E800F72F08 /* PostListViewController.m */; };
+		8BE5599B1E252A2C00F72F08 /* CellForTopicFollow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE5599A1E252A2C00F72F08 /* CellForTopicFollow.m */; };
 		A7A906B40348D8962D718553 /* libPods-HKPTimeLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E4E2E49CA898FFEF24C1F /* libPods-HKPTimeLine.a */; };
 		AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */; };
 		AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF321D8FDED0003FD63E /* CellForWorkGroup.m */; };
@@ -95,6 +96,8 @@
 		8BE559931E2524E800F72F08 /* PostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
 		8BE559941E2524E800F72F08 /* PostListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostListViewController.h; sourceTree = "<group>"; };
 		8BE559951E2524E800F72F08 /* PostListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostListViewController.m; sourceTree = "<group>"; };
+		8BE559991E252A2C00F72F08 /* CellForTopicFollow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellForTopicFollow.h; sourceTree = "<group>"; };
+		8BE5599A1E252A2C00F72F08 /* CellForTopicFollow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellForTopicFollow.m; sourceTree = "<group>"; };
 		A75A14A183837E35546625A5 /* Pods-HKPTimeLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKPTimeLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-HKPTimeLine/Pods-HKPTimeLine.release.xcconfig"; sourceTree = "<group>"; };
 		AC02FF2B1D8FDE4C003FD63E /* YHTimeLineListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTimeLineListController.h; sourceTree = "<group>"; };
 		AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTimeLineListController.m; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				AC1CBF761D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m */,
 				8BBC94331DE7339300C2CD26 /* WYWebProgressLayer.h */,
 				8BBC94341DE7339300C2CD26 /* WYWebProgressLayer.m */,
+				8BE559991E252A2C00F72F08 /* CellForTopicFollow.h */,
+				8BE5599A1E252A2C00F72F08 /* CellForTopicFollow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				AC1CBFA41D91154000FB8DD8 /* CellForWorkGroupRepost.m in Sources */,
 				8BC767C31E12B56E009FF531 /* UserMenuViewController.m in Sources */,
 				AC1CBF741D90CD2100FB8DD8 /* YHWorkGroupButton.m in Sources */,
+				8BE5599B1E252A2C00F72F08 /* CellForTopicFollow.m in Sources */,
 				AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				8BE5598C1E2524C400F72F08 /* WSLoginView.m in Sources */,
 				AC1CBF851D90D96C00FB8DD8 /* YHActionSheet.m in Sources */,
