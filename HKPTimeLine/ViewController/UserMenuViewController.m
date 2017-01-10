@@ -10,7 +10,7 @@
 #import "UIViewController+MMDrawerController.h"
 #import "ForumViewController.h"
 #import "AboutUsViewController.h"
-
+#import "LoginViewController.h"
 
 @interface UserMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     _dataArray = [[NSMutableArray alloc] init];
+    [_dataArray addObject:@"Account"];
     [_dataArray addObject:@"Forume"];
     [_dataArray addObject:@"About"];
     
@@ -88,12 +89,16 @@
     UIViewController *view = nil;
     switch (indexPath.row) {
         case 0:
+            view = [[LoginViewController alloc] init];
+            break;
+        case 1:
             view = [[ForumViewController alloc] init];
             
             break;
-        case 1:
+        case 2:
             view = [[AboutUsViewController alloc] init];
             break;
+            
         default:
             break;
     }

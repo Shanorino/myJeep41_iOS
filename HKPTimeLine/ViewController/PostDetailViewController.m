@@ -1,48 +1,46 @@
 //
-//  ForumViewController.m
+//  PostDetailViewController.m
 //  HKPTimeLine
 //
-//  Created by jokerking on 16/12/27.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by jokerking on 17/1/8.
+//  Copyright © 2017年 YHSoft. All rights reserved.
 //
 
-#import "ForumViewController.h"
+#import "PostDetailViewController.h"
 #import "YHRefreshTableView.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #import "UIViewController+MMDrawerController.h"
-#import "PostListViewController.h"
+#import "CellForTopic.h"
 
-@interface ForumViewController() <UITableViewDelegate,UITableViewDataSource>
+
+@interface PostDetailViewController () <UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic,strong) YHRefreshTableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
+
 @end
 
-@implementation ForumViewController
+@implementation PostDetailViewController
 
-#pragma mark - Lazy Load
 - (NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initUI];
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backToListView:)];
-    self.navigationItem.leftBarButtonItem = leftBarBtn;
-    [self requestDataLoadNew];
+    [self setupUI];
+    [self requestDataLoadNew:_topicId];
+    // Do any additional setup after loading the view.
 }
 
--(void) backToListView:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void) initUI{
-    self.title = @"Forum";
+// init ui
+- (void)setupUI{
+    self.title = @"Topic Title";
+    
     //设置导航栏背景颜色
-    UIColor * color = [UIColor colorWithRed:241.f green:122.f / 255 blue:10.f / 255 alpha:1];
+    UIColor * color = [UIColor colorWithRed:0.f green:191.f / 255 blue:143.f / 255 alpha:1];
     self.navigationController.navigationBar.barTintColor = color;
     self.navigationController.navigationBar.translucent = NO;
     
@@ -54,17 +52,15 @@
     NSDictionary *attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
     self.navigationController.navigationBar.titleTextAttributes = attributes;
     
-    self.view.backgroundColor = RGBCOLOR(244, 244, 244);
+    self.view.backgroundColor =  RGBCOLOR(244, 244, 244);
     
     self.tableView = [[YHRefreshTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate   = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = RGBCOLOR(244, 244, 244);
-    self.tableView.separatorStyle = UITableViewStyleGrouped;
-    [self.view addSubview:self.tableView];
-    
-    [self.tableView setEnableLoadNew:YES];
-    [self.tableView setEnableLoadMore:NO];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview: _tableView];
+    [self.tableView registerClass:[CellForTopic class] forCellReuseIdentifier:NSStringFromClass([CellForTopic class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,64 +74,56 @@
     if([_dataArray count] == 0){
         return  0;
     }
-    return [[[_dataArray objectAtIndex:section] objectForKey:@"subforum"] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if([_dataArray count] == 0){
-        return  @"";
-    }
-    return [[_dataArray objectAtIndex:section] objectForKey:@"groupname"];
+    return [_dataArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *cellIdentifier = @"Cell";
-    // 从缓存队列中取出复用的cell
-    UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell;
     
-    // 如果队列中cell为空，即无复用的cell，则对其进行初始化
-    if (cell==nil) {
-        // 初始化
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier] ;
-        // 定义其辅助样式
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    cell.textLabel.text = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumname"];
-    NSString *topiccount = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"topiccount"];
+    Class currentClass  = [CellForTopic class];
+    NSDictionary *model  = self.dataArray[indexPath.row];
     
-    NSString *postcount =[[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"postcount"];
+    cell  = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(currentClass)];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"主题:%@  发帖:%@",topiccount,postcount];
-    [cell.imageView setImage:[UIImage imageNamed:@"forumicon.png"]];
-    
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if([_dataArray count] == 0){
-        return  0;
-    }
-    return [_dataArray count];//返回标题数组中元素的个数来确定分区的个数
+    CellForTopic  *cell1 = nil;//原创
+    cell1 = (CellForTopic *)cell;
+    cell1.indexPath = indexPath;
+    cell1.model = model;
+    return cell1;
 }
 
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //UIViewController *view = nil;
-    NSString* forumid=[[[[_dataArray objectAtIndex:indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumid"];
-    PostListViewController *view = [[PostListViewController alloc] init];
-    view.forumId = forumid;
-    //拿到我们的LitterLCenterViewController，让它去push
-    UINavigationController* nav = (UINavigationController*)self.mm_drawerController.centerViewController;
-    [nav pushViewController:view animated:NO];
 }
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.row < self.dataArray.count) {
+        return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopic" configuration:^(CellForTopic *cell) {
+                [self configureOriCell:cell atIndexPath:indexPath];
+            }];
+    }
+    else{
+        return 20.0f;
+    }
+}
+
+- (void)configureOriCell:(CellForTopic *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
+    if (indexPath.row < _dataArray.count) {
+        cell.model = _dataArray[indexPath.row];
+    }
+    
+}
+
+
 #pragma mark - 网络请求
-- (void)requestDataLoadNew{
+- (void)requestDataLoadNew:(NSString *)topicId {
     YHRefreshType refreshType;
     refreshType = YHRefreshType_LoadNew;
     [self.tableView setNoMoreData:NO];
@@ -144,7 +132,7 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
-        id data = [self requestDataFromServer];
+        id data = [self requestDataFromServer:topicId];
         //通知主线程刷新
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新
@@ -156,9 +144,9 @@
     });
 }
 #pragma mark - 请求数据 解析JSON
-- (id) requestDataFromServer {
+- (id) requestDataFromServer:(NSString *) topicId {
     // 请求数据
-    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.myjeep41.com/forum_init.php"]];
+    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.myjeep41.com/readpost_init.php?topicid=%@",topicId]];
     
     //解析
     NSError *error = nil;
@@ -187,9 +175,8 @@
 
 #pragma mark - YHRefreshTableViewDelegate
 - (void)refreshTableViewLoadNew:(YHRefreshTableView*)view{
-    [self requestDataLoadNew];
+    [self requestDataLoadNew:_topicId];
 }
-
 
 /*
 #pragma mark - Navigation

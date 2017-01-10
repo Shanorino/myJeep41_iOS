@@ -15,6 +15,18 @@
 		8BC767C31E12B56E009FF531 /* UserMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC767C21E12B56E009FF531 /* UserMenuViewController.m */; };
 		8BC767C61E12BE0C009FF531 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC767C51E12BE0C009FF531 /* ForumViewController.m */; };
 		8BC767C91E12C02E009FF531 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC767C81E12C02E009FF531 /* AboutUsViewController.m */; };
+		8BE559851E2524C400F72F08 /* bg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8BE5597C1E2524C400F72F08 /* bg.jpeg */; };
+		8BE559861E2524C400F72F08 /* icon_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE5597D1E2524C400F72F08 /* icon_hand.png */; };
+		8BE559871E2524C400F72F08 /* iconfont-password.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE5597E1E2524C400F72F08 /* iconfont-password.png */; };
+		8BE559881E2524C400F72F08 /* iconfont-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE5597F1E2524C400F72F08 /* iconfont-user.png */; };
+		8BE559891E2524C400F72F08 /* owl-login-arm-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE559801E2524C400F72F08 /* owl-login-arm-left@2x.png */; };
+		8BE5598A1E2524C400F72F08 /* owl-login-arm-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE559811E2524C400F72F08 /* owl-login-arm-right@2x.png */; };
+		8BE5598B1E2524C400F72F08 /* owl-login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE559821E2524C400F72F08 /* owl-login@2x.png */; };
+		8BE5598C1E2524C400F72F08 /* WSLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559841E2524C400F72F08 /* WSLoginView.m */; };
+		8BE5598F1E2524D800F72F08 /* CellForTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE5598E1E2524D800F72F08 /* CellForTopic.m */; };
+		8BE559961E2524E800F72F08 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559911E2524E800F72F08 /* LoginViewController.m */; };
+		8BE559971E2524E800F72F08 /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559931E2524E800F72F08 /* PostDetailViewController.m */; };
+		8BE559981E2524E800F72F08 /* PostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE559951E2524E800F72F08 /* PostListViewController.m */; };
 		A7A906B40348D8962D718553 /* libPods-HKPTimeLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E4E2E49CA898FFEF24C1F /* libPods-HKPTimeLine.a */; };
 		AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */; };
 		AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF321D8FDED0003FD63E /* CellForWorkGroup.m */; };
@@ -66,6 +78,23 @@
 		8BC767C51E12BE0C009FF531 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		8BC767C71E12C02E009FF531 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		8BC767C81E12C02E009FF531 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		8BE5597C1E2524C400F72F08 /* bg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpeg; sourceTree = "<group>"; };
+		8BE5597D1E2524C400F72F08 /* icon_hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_hand.png; sourceTree = "<group>"; };
+		8BE5597E1E2524C400F72F08 /* iconfont-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-password.png"; sourceTree = "<group>"; };
+		8BE5597F1E2524C400F72F08 /* iconfont-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-user.png"; sourceTree = "<group>"; };
+		8BE559801E2524C400F72F08 /* owl-login-arm-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "owl-login-arm-left@2x.png"; sourceTree = "<group>"; };
+		8BE559811E2524C400F72F08 /* owl-login-arm-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "owl-login-arm-right@2x.png"; sourceTree = "<group>"; };
+		8BE559821E2524C400F72F08 /* owl-login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "owl-login@2x.png"; sourceTree = "<group>"; };
+		8BE559831E2524C400F72F08 /* WSLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLoginView.h; sourceTree = "<group>"; };
+		8BE559841E2524C400F72F08 /* WSLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLoginView.m; sourceTree = "<group>"; };
+		8BE5598D1E2524D800F72F08 /* CellForTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellForTopic.h; sourceTree = "<group>"; };
+		8BE5598E1E2524D800F72F08 /* CellForTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellForTopic.m; sourceTree = "<group>"; };
+		8BE559901E2524E800F72F08 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8BE559911E2524E800F72F08 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8BE559921E2524E800F72F08 /* PostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailViewController.h; sourceTree = "<group>"; };
+		8BE559931E2524E800F72F08 /* PostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
+		8BE559941E2524E800F72F08 /* PostListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostListViewController.h; sourceTree = "<group>"; };
+		8BE559951E2524E800F72F08 /* PostListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostListViewController.m; sourceTree = "<group>"; };
 		A75A14A183837E35546625A5 /* Pods-HKPTimeLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKPTimeLine.release.xcconfig"; path = "Pods/Target Support Files/Pods-HKPTimeLine/Pods-HKPTimeLine.release.xcconfig"; sourceTree = "<group>"; };
 		AC02FF2B1D8FDE4C003FD63E /* YHTimeLineListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTimeLineListController.h; sourceTree = "<group>"; };
 		AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTimeLineListController.m; sourceTree = "<group>"; };
@@ -158,6 +187,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8BE5597B1E2524C400F72F08 /* WSLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				8BE5597C1E2524C400F72F08 /* bg.jpeg */,
+				8BE5597D1E2524C400F72F08 /* icon_hand.png */,
+				8BE5597E1E2524C400F72F08 /* iconfont-password.png */,
+				8BE5597F1E2524C400F72F08 /* iconfont-user.png */,
+				8BE559801E2524C400F72F08 /* owl-login-arm-left@2x.png */,
+				8BE559811E2524C400F72F08 /* owl-login-arm-right@2x.png */,
+				8BE559821E2524C400F72F08 /* owl-login@2x.png */,
+				8BE559831E2524C400F72F08 /* WSLoginView.h */,
+				8BE559841E2524C400F72F08 /* WSLoginView.m */,
+			);
+			path = WSLoginView;
+			sourceTree = "<group>";
+		};
 		AB3ADBE5D1E14D33D11474F5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +215,12 @@
 		AC02FF281D8FDE4C003FD63E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8BE559901E2524E800F72F08 /* LoginViewController.h */,
+				8BE559911E2524E800F72F08 /* LoginViewController.m */,
+				8BE559921E2524E800F72F08 /* PostDetailViewController.h */,
+				8BE559931E2524E800F72F08 /* PostDetailViewController.m */,
+				8BE559941E2524E800F72F08 /* PostListViewController.h */,
+				8BE559951E2524E800F72F08 /* PostListViewController.m */,
 				AC02FF2B1D8FDE4C003FD63E /* YHTimeLineListController.h */,
 				AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */,
 				8BBC942F1DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.h */,
@@ -204,6 +255,8 @@
 		AC02FF301D8FDE62003FD63E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8BE5598D1E2524D800F72F08 /* CellForTopic.h */,
+				8BE5598E1E2524D800F72F08 /* CellForTopic.m */,
 				AC0432481DDC30F5008DCE20 /* YHSharePresentView.h */,
 				AC0432491DDC30F5008DCE20 /* YHSharePresentView.m */,
 				AC1CBF831D90D96C00FB8DD8 /* YHActionSheet.h */,
@@ -229,6 +282,7 @@
 		AC02FF371D8FE146003FD63E /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				8BE5597B1E2524C400F72F08 /* WSLoginView */,
 				AC0432141DDC0BC9008DCE20 /* ThirdParty */,
 			);
 			path = Others;
@@ -377,7 +431,7 @@
 				TargetAttributes = {
 					ACCC0B761D8FDBCF00ACFEBD = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = L2YUSZMJ2V;
+						DevelopmentTeam = 59Y7BBJQ4H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -405,9 +459,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE559871E2524C400F72F08 /* iconfont-password.png in Resources */,
+				8BE559851E2524C400F72F08 /* bg.jpeg in Resources */,
 				8BBC94321DE72AA200C2CD26 /* Main.storyboard in Resources */,
+				8BE559891E2524C400F72F08 /* owl-login-arm-left@2x.png in Resources */,
 				ACCC0B8A1D8FDBCF00ACFEBD /* LaunchScreen.storyboard in Resources */,
 				ACCC0B871D8FDBCF00ACFEBD /* Assets.xcassets in Resources */,
+				8BE559861E2524C400F72F08 /* icon_hand.png in Resources */,
+				8BE5598A1E2524C400F72F08 /* owl-login-arm-right@2x.png in Resources */,
+				8BE559881E2524C400F72F08 /* iconfont-user.png in Resources */,
+				8BE5598B1E2524C400F72F08 /* owl-login@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,11 +531,13 @@
 				8BC767C31E12B56E009FF531 /* UserMenuViewController.m in Sources */,
 				AC1CBF741D90CD2100FB8DD8 /* YHWorkGroupButton.m in Sources */,
 				AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */,
+				8BE5598C1E2524C400F72F08 /* WSLoginView.m in Sources */,
 				AC1CBF851D90D96C00FB8DD8 /* YHActionSheet.m in Sources */,
 				AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */,
 				AC1CBFA11D910F4900FB8DD8 /* YHWorkExperienceModel.m in Sources */,
 				AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */,
 				AC1CBF9F1D910F4900FB8DD8 /* YHEducationExperienceModel.m in Sources */,
+				8BE559971E2524E800F72F08 /* PostDetailViewController.m in Sources */,
 				AC1CBFB51D911D6F00FB8DD8 /* NSDate+LYXCategory.m in Sources */,
 				8BBC94351DE7339300C2CD26 /* WYWebProgressLayer.m in Sources */,
 				ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */,
@@ -482,6 +545,7 @@
 				AC1CBF771D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m in Sources */,
 				AC1CBFB21D911BA300FB8DD8 /* HKPCommon.m in Sources */,
 				8BBC94391DE734F500C2CD26 /* NSTimer+addition.m in Sources */,
+				8BE5598F1E2524D800F72F08 /* CellForTopic.m in Sources */,
 				AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */,
 				AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				AC1CBF981D910F0D00FB8DD8 /* YHUserInfo.m in Sources */,
@@ -495,7 +559,9 @@
 				AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				AC04323F1DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				AC1CBF951D910EDB00FB8DD8 /* YHWorkGroup.m in Sources */,
+				8BE559981E2524E800F72F08 /* PostListViewController.m in Sources */,
 				8BC767C91E12C02E009FF531 /* AboutUsViewController.m in Sources */,
+				8BE559961E2524E800F72F08 /* LoginViewController.m in Sources */,
 				ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */,
 				AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */,
 				AC02FF421D8FE732003FD63E /* YHRefreshTableView.m in Sources */,
@@ -618,14 +684,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = L2YUSZMJ2V;
+				DEVELOPMENT_TEAM = 59Y7BBJQ4H;
 				GCC_PREFIX_HEADER = HKPTimeLine/HKPTimeLine.pch;
 				INFOPLIST_FILE = HKPTimeLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "laozishixs-gmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = "-94808518-qq.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -637,14 +703,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = L2YUSZMJ2V;
+				DEVELOPMENT_TEAM = 59Y7BBJQ4H;
 				GCC_PREFIX_HEADER = HKPTimeLine/HKPTimeLine.pch;
 				INFOPLIST_FILE = HKPTimeLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "laozishixs-gmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = "-94808518-qq.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

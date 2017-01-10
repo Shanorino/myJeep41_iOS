@@ -1,40 +1,42 @@
 //
-//  ForumViewController.m
+//  PostListViewController.m
 //  HKPTimeLine
 //
-//  Created by jokerking on 16/12/27.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by jokerking on 17/1/8.
+//  Copyright © 2017年 YHSoft. All rights reserved.
 //
 
-#import "ForumViewController.h"
-#import "YHRefreshTableView.h"
-#import "UIViewController+MMDrawerController.h"
 #import "PostListViewController.h"
+#import "YHRefreshTableView.h"
+#import "PostDetailViewController.h"
+#import "UIViewController+MMDrawerController.h"
 
-@interface ForumViewController() <UITableViewDelegate,UITableViewDataSource>
+
+@interface PostListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic,strong) YHRefreshTableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
+
 @end
 
-@implementation ForumViewController
 
-#pragma mark - Lazy Load
-- (NSMutableArray *)dataArray{
-    if (!_dataArray) {
+@implementation PostListViewController
+
+- (NSMutableArray *) dataArray{
+    if(!_dataArray){
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
     UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backToListView:)];
     self.navigationItem.leftBarButtonItem = leftBarBtn;
-    [self requestDataLoadNew];
+    [self requestDataLoadNew:_forumId];
+    // Do any additional setup after loading the view.
 }
-
 -(void) backToListView:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -72,21 +74,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if([_dataArray count] == 0){
         return  0;
     }
-    return [[[_dataArray objectAtIndex:section] objectForKey:@"subforum"] count];
+    return [_dataArray count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if([_dataArray count] == 0){
-        return  @"";
-    }
-    return [[_dataArray objectAtIndex:section] objectForKey:@"groupname"];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -101,41 +98,37 @@
         // 定义其辅助样式
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    cell.textLabel.text = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumname"];
-    NSString *topiccount = [[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"topiccount"];
+    cell.textLabel.text = [[_dataArray objectAtIndex: indexPath.row] objectForKey:@"topicname"];
     
-    NSString *postcount =[[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"postcount"];
+    NSString *author = [[_dataArray objectAtIndex: indexPath.row] objectForKey:@"displayname"];
+    NSString *click = [[_dataArray objectAtIndex: indexPath.row] objectForKey:@"topicopened"];
+    NSString *repeat = [[_dataArray objectAtIndex: indexPath.row] objectForKey:@"postcount"];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"主题:%@  发帖:%@",topiccount,postcount];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"作者:%@  点击:%@  回复:%@",author,click,repeat];
+    
     [cell.imageView setImage:[UIImage imageNamed:@"forumicon.png"]];
-    
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if([_dataArray count] == 0){
-        return  0;
-    }
-    return [_dataArray count];//返回标题数组中元素的个数来确定分区的个数
-}
+//}
 
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //UIViewController *view = nil;
-    NSString* forumid=[[[[_dataArray objectAtIndex:indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"forumid"];
-    PostListViewController *view = [[PostListViewController alloc] init];
-    view.forumId = forumid;
+    NSString* topicid=[[_dataArray objectAtIndex:indexPath.row] objectForKey:@"topicid"];
+    
+    PostDetailViewController *view = [[PostDetailViewController alloc] init];
+    view.topicId = topicid;
     //拿到我们的LitterLCenterViewController，让它去push
     UINavigationController* nav = (UINavigationController*)self.mm_drawerController.centerViewController;
     [nav pushViewController:view animated:NO];
+    
 }
 #pragma mark - 网络请求
-- (void)requestDataLoadNew{
+- (void)requestDataLoadNew:(NSString *)forumid{
     YHRefreshType refreshType;
     refreshType = YHRefreshType_LoadNew;
     [self.tableView setNoMoreData:NO];
@@ -144,7 +137,7 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
-        id data = [self requestDataFromServer];
+        id data = [self requestDataFromServer: forumid];
         //通知主线程刷新
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新
@@ -156,9 +149,9 @@
     });
 }
 #pragma mark - 请求数据 解析JSON
-- (id) requestDataFromServer {
+- (id) requestDataFromServer:(NSString *) forumId {
     // 请求数据
-    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.myjeep41.com/forum_init.php"]];
+    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.myjeep41.com/postlist_init.php?forumid=%@",forumId]];
     
     //解析
     NSError *error = nil;
@@ -187,18 +180,18 @@
 
 #pragma mark - YHRefreshTableViewDelegate
 - (void)refreshTableViewLoadNew:(YHRefreshTableView*)view{
-    [self requestDataLoadNew];
+    [self requestDataLoadNew:_forumId];
 }
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
