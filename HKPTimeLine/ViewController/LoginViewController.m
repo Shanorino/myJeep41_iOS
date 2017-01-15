@@ -40,8 +40,8 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
         id data = [self requestDataFromServer:name password:password];
-        if(data==nil)
-        {data=@"Wrong Username/Password";}
+        if(data==nil){
+            data=@"Wrong Username/Password";}
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",data] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
