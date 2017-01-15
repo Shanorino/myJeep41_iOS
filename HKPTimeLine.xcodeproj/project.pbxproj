@@ -436,7 +436,7 @@
 				TargetAttributes = {
 					ACCC0B761D8FDBCF00ACFEBD = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 59Y7BBJQ4H;
+						DevelopmentTeam = L2YUSZMJ2V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -690,14 +690,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 59Y7BBJQ4H;
+				DEVELOPMENT_TEAM = L2YUSZMJ2V;
 				GCC_PREFIX_HEADER = HKPTimeLine/HKPTimeLine.pch;
 				INFOPLIST_FILE = HKPTimeLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "-94808518-qq.com";
+				PRODUCT_BUNDLE_IDENTIFIER = "laozishixs-gmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -709,14 +709,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 59Y7BBJQ4H;
+				DEVELOPMENT_TEAM = L2YUSZMJ2V;
 				GCC_PREFIX_HEADER = HKPTimeLine/HKPTimeLine.pch;
 				INFOPLIST_FILE = HKPTimeLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "-94808518-qq.com";
+				PRODUCT_BUNDLE_IDENTIFIER = "laozishixs-gmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
