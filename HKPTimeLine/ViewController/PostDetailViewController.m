@@ -12,6 +12,9 @@
 #import "UIViewController+MMDrawerController.h"
 #import "CellForTopic.h"
 #import "CellForTopicFollow.h"
+#import "MPDetailBottomView1.h"
+#import "MPOpenReplyViewController.h"
+#define BOTTOMVIEWHEIGHT_MPHomeDetailVC 120
 
 @interface PostDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -32,6 +35,7 @@
     [super viewDidLoad];
     [self setupUI];
     [self requestDataLoadNew:_topicId];
+    [self initFootView];
     // Do any additional setup after loading the view.
 }
 
@@ -52,9 +56,8 @@
     NSDictionary *attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
     self.navigationController.navigationBar.titleTextAttributes = attributes;
     
-    self.view.backgroundColor =  [UIColor redColor];
-    
-    self.tableView = [[YHRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-52) style:UITableViewStylePlain];
+
+    self.tableView = [[YHRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-102) style:UITableViewStylePlain];
     self.tableView.delegate   = self;
     self.tableView.dataSource = self;
     [self.tableView setEnableLoadNew:YES];
@@ -221,5 +224,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - initFootView
+
+- (void)initFootView
+{
+    MPDetailBottomView1 *bottomVi = [[MPDetailBottomView1 alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-BOTTOMVIEWHEIGHT_MPHomeDetailVC, self.view.frame.size.width, 50)];
+    [self.view addSubview:bottomVi];
+    
+    UITapGestureRecognizer *tap33 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(inReplyView)];
+    [bottomVi addGestureRecognizer:tap33];
+}
+- (void)inReplyView
+{
+    
+    MPOpenReplyViewController *vc = [[MPOpenReplyViewController alloc]init];
+    vc.bgImg = [self screenShot];
+    [self presentViewController:vc animated:NO completion:nil];
+    
+}
 
 @end

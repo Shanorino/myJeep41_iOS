@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3457B5371E1550B1006A7443 /* libPods-HKPTimeLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3457B5341E154F14006A7443 /* libPods-HKPTimeLine.a */; };
+		8B0D16901E2D015700AED808 /* MPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D16891E2D015700AED808 /* MPBaseViewController.m */; };
+		8B0D16911E2D015700AED808 /* MPDetailBottomView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D168B1E2D015700AED808 /* MPDetailBottomView1.m */; };
+		8B0D16921E2D015700AED808 /* MPOpenReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D168D1E2D015700AED808 /* MPOpenReplyViewController.m */; };
+		8B0D16931E2D015700AED808 /* MPReplyToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D168F1E2D015700AED808 /* MPReplyToolBarView.m */; };
+		8B0D16961E2D022E00AED808 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D16951E2D022E00AED808 /* PlaceholderTextView.m */; };
+		8B0D169A1E2D028100AED808 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D16991E2D028100AED808 /* UIViewExt.m */; };
 		8BBC94311DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC94301DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.m */; };
 		8BBC94321DE72AA200C2CD26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */; };
 		8BBC94351DE7339300C2CD26 /* WYWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC94341DE7339300C2CD26 /* WYWebProgressLayer.m */; };
@@ -67,6 +73,19 @@
 		341443EC1E14355D005C7716 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		341443EF1E143711005C7716 /* SDWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SDWebImage; path = Pods/Headers/Public/SDWebImage; sourceTree = "<group>"; };
 		3457B5341E154F14006A7443 /* libPods-HKPTimeLine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-HKPTimeLine.a"; path = "../../Users/shane/Library/Developer/Xcode/DerivedData/HKPTimeLine-aaqjnhyeucyxnhaqrifsbvwethkz/Build/Products/Debug-iphonesimulator/libPods-HKPTimeLine.a"; sourceTree = "<group>"; };
+		8B0D16881E2D015700AED808 /* MPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBaseViewController.h; sourceTree = "<group>"; };
+		8B0D16891E2D015700AED808 /* MPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBaseViewController.m; sourceTree = "<group>"; };
+		8B0D168A1E2D015700AED808 /* MPDetailBottomView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDetailBottomView1.h; sourceTree = "<group>"; };
+		8B0D168B1E2D015700AED808 /* MPDetailBottomView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDetailBottomView1.m; sourceTree = "<group>"; };
+		8B0D168C1E2D015700AED808 /* MPOpenReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPOpenReplyViewController.h; sourceTree = "<group>"; };
+		8B0D168D1E2D015700AED808 /* MPOpenReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPOpenReplyViewController.m; sourceTree = "<group>"; };
+		8B0D168E1E2D015700AED808 /* MPReplyToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPReplyToolBarView.h; sourceTree = "<group>"; };
+		8B0D168F1E2D015700AED808 /* MPReplyToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPReplyToolBarView.m; sourceTree = "<group>"; };
+		8B0D16941E2D022E00AED808 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		8B0D16951E2D022E00AED808 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
+		8B0D16971E2D026000AED808 /* CONST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CONST.h; sourceTree = "<group>"; };
+		8B0D16981E2D028100AED808 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		8B0D16991E2D028100AED808 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		8BBC942F1DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JeepArticleDetailViewViewController.h; sourceTree = "<group>"; };
 		8BBC94301DE71F5D00C2CD26 /* JeepArticleDetailViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JeepArticleDetailViewViewController.m; sourceTree = "<group>"; };
 		8BBC94331DE7339300C2CD26 /* WYWebProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWebProgressLayer.h; sourceTree = "<group>"; };
@@ -190,6 +209,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8B0D16871E2D015700AED808 /* MPReplayView */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D16981E2D028100AED808 /* UIViewExt.h */,
+				8B0D16991E2D028100AED808 /* UIViewExt.m */,
+				8B0D16971E2D026000AED808 /* CONST.h */,
+				8B0D16941E2D022E00AED808 /* PlaceholderTextView.h */,
+				8B0D16951E2D022E00AED808 /* PlaceholderTextView.m */,
+				8B0D16881E2D015700AED808 /* MPBaseViewController.h */,
+				8B0D16891E2D015700AED808 /* MPBaseViewController.m */,
+				8B0D168A1E2D015700AED808 /* MPDetailBottomView1.h */,
+				8B0D168B1E2D015700AED808 /* MPDetailBottomView1.m */,
+				8B0D168C1E2D015700AED808 /* MPOpenReplyViewController.h */,
+				8B0D168D1E2D015700AED808 /* MPOpenReplyViewController.m */,
+				8B0D168E1E2D015700AED808 /* MPReplyToolBarView.h */,
+				8B0D168F1E2D015700AED808 /* MPReplyToolBarView.m */,
+			);
+			path = MPReplayView;
+			sourceTree = "<group>";
+		};
 		8BE5597B1E2524C400F72F08 /* WSLoginView */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +326,7 @@
 		AC02FF371D8FE146003FD63E /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				8B0D16871E2D015700AED808 /* MPReplayView */,
 				8BE5597B1E2524C400F72F08 /* WSLoginView */,
 				AC0432141DDC0BC9008DCE20 /* ThirdParty */,
 			);
@@ -540,7 +580,10 @@
 				8BE5598C1E2524C400F72F08 /* WSLoginView.m in Sources */,
 				AC1CBF851D90D96C00FB8DD8 /* YHActionSheet.m in Sources */,
 				AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */,
+				8B0D16931E2D015700AED808 /* MPReplyToolBarView.m in Sources */,
+				8B0D16901E2D015700AED808 /* MPBaseViewController.m in Sources */,
 				AC1CBFA11D910F4900FB8DD8 /* YHWorkExperienceModel.m in Sources */,
+				8B0D16921E2D015700AED808 /* MPOpenReplyViewController.m in Sources */,
 				AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */,
 				AC1CBF9F1D910F4900FB8DD8 /* YHEducationExperienceModel.m in Sources */,
 				8BE559971E2524E800F72F08 /* PostDetailViewController.m in Sources */,
@@ -548,8 +591,11 @@
 				8BBC94351DE7339300C2CD26 /* WYWebProgressLayer.m in Sources */,
 				ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */,
 				AC04324A1DDC30F5008DCE20 /* YHSharePresentView.m in Sources */,
+				8B0D16961E2D022E00AED808 /* PlaceholderTextView.m in Sources */,
 				AC1CBF771D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m in Sources */,
 				AC1CBFB21D911BA300FB8DD8 /* HKPCommon.m in Sources */,
+				8B0D169A1E2D028100AED808 /* UIViewExt.m in Sources */,
+				8B0D16911E2D015700AED808 /* MPDetailBottomView1.m in Sources */,
 				8BBC94391DE734F500C2CD26 /* NSTimer+addition.m in Sources */,
 				8BE5598F1E2524D800F72F08 /* CellForTopic.m in Sources */,
 				AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */,

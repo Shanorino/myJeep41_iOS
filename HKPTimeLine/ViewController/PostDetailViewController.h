@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPBaseViewController.h"
 
-@interface PostDetailViewController : UIViewController
+@interface PostDetailViewController :  MPBaseViewController
 @property (nonatomic,strong) NSString *topicId;
 @end
