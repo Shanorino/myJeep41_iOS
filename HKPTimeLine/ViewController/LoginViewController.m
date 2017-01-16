@@ -44,7 +44,7 @@
             data=@"Wrong Username/Password";}
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新
-            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",data] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@%@",[data[0] objectForKey:@"displayname"],[data[0] objectForKey:@"userid"]] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
             [alertV show];
             
         });
@@ -58,9 +58,11 @@
     
     //解析
     NSError *error = nil;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
     id val=[dict objectForKey:@"result"];
-    if(val==[NSNull null]){
+    if(error)
+    {
+        NSLog(@"json解析失败：%@",error);
         return nil;
     }
     else

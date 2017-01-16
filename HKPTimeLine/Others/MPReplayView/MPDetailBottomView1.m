@@ -38,10 +38,6 @@
         nameLabel.textColor = [UIColor lightGrayColor];
         [self addSubview:nameLabel];
         
-        
-        
-        
-        
     }
     return self;
 }

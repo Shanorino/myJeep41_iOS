@@ -229,7 +229,7 @@
 
 - (void)initFootView
 {
-    MPDetailBottomView1 *bottomVi = [[MPDetailBottomView1 alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-BOTTOMVIEWHEIGHT_MPHomeDetailVC, self.view.frame.size.width, 50)];
+    MPDetailBottomView1 *bottomVi = [[MPDetailBottomView1 alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-BOTTOMVIEWHEIGHT_MPHomeDetailVC, self.view.frame.size.width, 60)];
     [self.view addSubview:bottomVi];
     
     UITapGestureRecognizer *tap33 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(inReplyView)];
