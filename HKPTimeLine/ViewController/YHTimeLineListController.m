@@ -226,7 +226,7 @@
 #pragma mark - 请求数据 解析JSON
 - (id) requestDataFromServer:(int) pageIndex {
     // 请求数据
-    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.jokerface.top/AppJeepServer/blog/%d",pageIndex]];
+    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.myjeep41.com/bloglist_init.php?page=%d",pageIndex]];
 
     //解析
     NSError *error = nil;
