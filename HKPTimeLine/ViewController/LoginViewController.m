@@ -28,8 +28,6 @@
     [self.view addSubview:loginView];
     [loginView setClickBlock:^(NSString *textField1Text, NSString *textField2Text) {
         [self loginCheck:textField1Text password:textField2Text];
-        //UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@,%@",textField1Text,textField2Text] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
-        //[alertV show];
         
     }];
 }
@@ -41,15 +39,20 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
         id data = [self requestDataFromServer:name password:password];
-        if(data==nil){
-            data=@"Wrong Username/Password";}
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新
-            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@%@",[data[0] objectForKey:@"displayname"],[data[0] objectForKey:@"userid"]] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
-            [alertV show];
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            appDelegate.globaluserid = [data[0] objectForKey:@"userid"];
-            appDelegate.globalusername = [data[0] objectForKey:@"displayname"];
+            if(data==nil){
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Wrong Username/Password"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
+                [alertV show];
+            }
+            else{
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                appDelegate.globaluserid = [data[0] objectForKey:@"userid"];
+                appDelegate.globalusername = [data[0] objectForKey:@"displayname"];
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Login Succeeded"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
+                [alertV show];
+            }
         });
     });
 }

@@ -44,7 +44,7 @@
     self.title = @"Topic Title";
     
     //设置导航栏背景颜色
-    UIColor * color = [UIColor colorWithRed:0.f green:191.f / 255 blue:143.f / 255 alpha:1];
+    UIColor * color = [UIColor colorWithRed:241.f green:122.f / 255 blue:10.f / 255 alpha:1];
     self.navigationController.navigationBar.barTintColor = color;
     self.navigationController.navigationBar.translucent = NO;
     
