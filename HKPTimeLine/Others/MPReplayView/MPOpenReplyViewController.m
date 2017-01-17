@@ -8,6 +8,7 @@
 
 #import "MPOpenReplyViewController.h"
 #import "CONST.h"
+#import "AppDelegate.h"
 
 
 @interface MPOpenReplyViewController ()
@@ -184,7 +185,8 @@
     UIImage *img = _toolbar.imgView.image;
     
     NSLog(@"--replyStr-%@----",message);
-    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"--replyStr-%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
     [self closeBtnClick];
 
 }

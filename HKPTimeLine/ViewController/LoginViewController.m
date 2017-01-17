@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "WSLoginView.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -46,7 +47,9 @@
             //回调或者说是通知主线程刷新
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@%@",[data[0] objectForKey:@"displayname"],[data[0] objectForKey:@"userid"]] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
             [alertV show];
-            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            appDelegate.globaluserid = [data[0] objectForKey:@"userid"];
+            appDelegate.globalusername = [data[0] objectForKey:@"displayname"];
         });
     });
 }

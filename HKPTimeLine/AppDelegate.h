@@ -13,6 +13,8 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *globaluserid;
+@property (strong, nonatomic) NSString *globalusername;
 
 
 @end
