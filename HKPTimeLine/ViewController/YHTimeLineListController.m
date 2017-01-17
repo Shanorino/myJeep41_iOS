@@ -17,6 +17,7 @@
 #import "YHSharePresentView.h"
 #import "UIViewController+MMDrawerController.h"
 #import <MMDrawerBarButtonItem.h>
+#import "AppDelegate.h"
 
 @interface YHTimeLineListController ()<UITableViewDelegate,UITableViewDataSource,CellForWorkGroupDelegate,CellForWorkGroupRepostDelegate>{
     int _currentRequestPage; //当前请求页面
@@ -39,6 +40,18 @@
     self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc]initWithTarget:self action:@selector(leftBtn)];
     //设置UserId 
     [YHUserInfoManager sharedInstance].userInfo.uid = @"1";
+    //从记住我获取登陆状态
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *savedid = [NSString stringWithFormat:@"%@",[defaults objectForKey:@"saveduserid"]];
+    NSString *savedname = [NSString stringWithFormat:@"%@",[defaults objectForKey:@"savedusername"]];
+    if(savedid.length>0){
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.globaluserid=savedid;
+        appDelegate.globalusername=savedname;
+        NSLog(@"--记住我内容-%@---%@-",savedid,savedname);
+    }
+    else
+        NSLog(@"没有记住我");
 }
 -(void)leftBtn{
     //这里的话是通过遍历循环拿到之前在AppDelegate中声明的那个MMDrawerController属性，然后判断是否为打开状态，如果是就关闭，否就是打开(初略解释，里面还有一些条件)
@@ -77,6 +90,7 @@
     
     [self.tableView registerClass:[CellForWorkGroup class] forCellReuseIdentifier:NSStringFromClass([CellForWorkGroup class])];
     [self.tableView registerClass:[CellForWorkGroupRepost class] forCellReuseIdentifier:NSStringFromClass([CellForWorkGroupRepost class])];
+    
 }
 
 

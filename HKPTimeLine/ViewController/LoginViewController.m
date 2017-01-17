@@ -52,6 +52,10 @@
                 appDelegate.globalusername = [data[0] objectForKey:@"displayname"];
                 UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Login Succeeded"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
                 [alertV show];
+                //记住我
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:appDelegate.globaluserid forKey:@"saveduserid"];
+                [defaults setObject:appDelegate.globalusername forKey:@"savedusername"];
             }
         });
     });

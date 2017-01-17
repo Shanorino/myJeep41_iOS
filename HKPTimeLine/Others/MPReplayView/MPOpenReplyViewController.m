@@ -186,9 +186,8 @@
     
     NSLog(@"--replyStr-%@----",message);
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"--replyStr-%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
-    [self closeBtnClick];
-
+    NSLog(@"--replyUsr-%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
+    
 }
 
 @end
