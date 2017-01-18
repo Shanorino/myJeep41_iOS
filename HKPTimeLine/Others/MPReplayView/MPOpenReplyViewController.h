@@ -20,5 +20,7 @@
 
 @property (weak,nonatomic) MPReplyToolBarView *toolbar;
 
+@property (strong,nonatomic) NSString *topicid;
+
 
 @end

@@ -41,7 +41,7 @@
 
 // init ui
 - (void)setupUI{
-    self.title = @"Topic Title";
+    //self.title = @"Topic Title";  若标题太长反而丑，因此多余了
     
     //设置导航栏背景颜色
     UIColor * color = [UIColor colorWithRed:241.f green:122.f / 255 blue:10.f / 255 alpha:1];
@@ -235,11 +235,10 @@
     UITapGestureRecognizer *tap33 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(inReplyView)];
     [bottomVi addGestureRecognizer:tap33];
 }
-- (void)inReplyView
-{
-    
+- (void)inReplyView{
     MPOpenReplyViewController *vc = [[MPOpenReplyViewController alloc]init];
     vc.bgImg = [self screenShot];
+    vc.topicid=_topicId;
     [self presentViewController:vc animated:NO completion:nil];
     
 }

@@ -48,10 +48,10 @@
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.globaluserid=savedid;
         appDelegate.globalusername=savedname;
-        NSLog(@"--记住我内容-%@---%@-",savedid,savedname);
+        NSLog(@"--上一次记住我内容-%@---%@-",savedid,savedname);
     }
     else
-        NSLog(@"没有记住我");
+        NSLog(@"并没有记住我");
 }
 -(void)leftBtn{
     //这里的话是通过遍历循环拿到之前在AppDelegate中声明的那个MMDrawerController属性，然后判断是否为打开状态，如果是就关闭，否就是打开(初略解释，里面还有一些条件)
