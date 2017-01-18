@@ -22,6 +22,7 @@
     // Do any additional setup after loading the view.
 }
 
+
 - (void) setupUI{
     WSLoginView *loginView = [[WSLoginView alloc] initWithFrame:self.view.bounds];
     loginView.titleLabel.text = @"Login";
@@ -47,6 +48,7 @@
                 [alertV show];
             }
             else{
+                //本次用户作为全局变量
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 appDelegate.globaluserid = [data[0] objectForKey:@"userid"];
                 appDelegate.globalusername = [data[0] objectForKey:@"displayname"];
@@ -56,6 +58,8 @@
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 [defaults setObject:appDelegate.globaluserid forKey:@"saveduserid"];
                 [defaults setObject:appDelegate.globalusername forKey:@"savedusername"];
+                //关闭登陆view 并刷新边栏
+                [self.navigationController popViewControllerAnimated:true];
             }
         });
     });

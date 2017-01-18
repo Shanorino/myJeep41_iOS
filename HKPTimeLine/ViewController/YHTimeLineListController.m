@@ -38,13 +38,13 @@
     [self initUI];
     [self requestDataLoadNew:YES];
     self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc]initWithTarget:self action:@selector(leftBtn)];
-    //设置UserId 
+    //设置UserId ,暂时没用
     [YHUserInfoManager sharedInstance].userInfo.uid = @"1";
     //从记住我获取登陆状态
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *savedid = [NSString stringWithFormat:@"%@",[defaults objectForKey:@"saveduserid"]];
     NSString *savedname = [NSString stringWithFormat:@"%@",[defaults objectForKey:@"savedusername"]];
-    if(savedid.length>0){
+    if(savedid.length>0 && ![savedid isEqual:@"(null)"]){
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.globaluserid=savedid;
         appDelegate.globalusername=savedname;
@@ -53,6 +53,8 @@
     else
         NSLog(@"并没有记住我");
 }
+
+
 -(void)leftBtn{
     //这里的话是通过遍历循环拿到之前在AppDelegate中声明的那个MMDrawerController属性，然后判断是否为打开状态，如果是就关闭，否就是打开(初略解释，里面还有一些条件)
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];

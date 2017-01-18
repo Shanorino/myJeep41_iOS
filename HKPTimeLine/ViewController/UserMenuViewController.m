@@ -11,6 +11,7 @@
 #import "ForumViewController.h"
 #import "AboutUsViewController.h"
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface UserMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -23,7 +24,10 @@
     [super viewDidLoad];
     
     _dataArray = [[NSMutableArray alloc] init];
-    [_dataArray addObject:@"Account"];
+    if([self isLoggedin])
+        [_dataArray addObject:@"Log Out"];
+    else
+        [_dataArray addObject:@"Account"];
     [_dataArray addObject:@"Forume"];
     [_dataArray addObject:@"About"];
     
@@ -59,7 +63,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//判断是否已登陆
+- (BOOL)isLoggedin {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *savedid = [NSString stringWithFormat:@"%@",appDelegate.globaluserid];
+    //NSString *savedname=[NSString stringWithFormat:@"%@",appDelegate.globalusername];
+    if(savedid.length>0 && ![savedid isEqual:@"(null)"])
+        return true;
+    else
+        return false;
+}
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -89,11 +102,24 @@
     UIViewController *view = nil;
     switch (indexPath.row) {
         case 0:
-            view = [[LoginViewController alloc] init];
+        {
+            if([self isLoggedin]){
+                //Do Log Out
+                NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+                [defaults removeObjectForKey:@"saveduserid"];
+                [defaults removeObjectForKey:@"savedusername"];
+                [defaults synchronize];
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                appDelegate.globaluserid = nil;
+                appDelegate.globalusername = nil;
+                [self viewDidLoad];
+            }
+            else
+                view = [[LoginViewController alloc] init];
             break;
+        }
         case 1:
             view = [[ForumViewController alloc] init];
-            
             break;
         case 2:
             view = [[AboutUsViewController alloc] init];
@@ -111,6 +137,11 @@
         //设置打开抽屉模式为MMOpenDrawerGestureModeNone，也就是没有任何效果。
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     }];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:TRUE];
+    [self viewDidLoad];
+    //NSLog(@"从登陆返回");
 }
 /*
 #pragma mark - Navigation
