@@ -189,6 +189,7 @@
     NSLog(@"--replyUsr--%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
     NSLog(@"--replyTopicID--%@---",_topicid);
     //提交回复的三个参数 message, globaluserid, _topicid 用POST方法提交即可
+    [self closeBtnClick];
 }
 
 @end
