@@ -14,6 +14,7 @@
 #import "CellForTopicFollow.h"
 #import "MPDetailBottomView1.h"
 #import "MPOpenReplyViewController.h"
+#import "AppDelegate.h"
 #define BOTTOMVIEWHEIGHT_MPHomeDetailVC 120
 
 @interface PostDetailViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -236,11 +237,23 @@
     [bottomVi addGestureRecognizer:tap33];
 }
 - (void)inReplyView{
-    MPOpenReplyViewController *vc = [[MPOpenReplyViewController alloc]init];
-    vc.bgImg = [self screenShot];
-    vc.topicid=_topicId;
-    [self presentViewController:vc animated:NO completion:nil];
-    
+    //若未登陆则提示先登陆再回复
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"--replyUsr--%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
+    if(appDelegate.globalusername.length>0 && ![appDelegate.globalusername isEqual:@"null"])
+    {
+        MPOpenReplyViewController *vc = [[MPOpenReplyViewController alloc]init];
+        vc.bgImg = [self screenShot];
+        vc.topicid=_topicId;
+        [self presentViewController:vc animated:NO completion:nil];
+    }
+    else
+        [[[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Please Log In First"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil] show];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:TRUE];
+    [self requestDataLoadNew:_topicId];
+    //NSLog(@"从发帖框返回");
+}
 @end

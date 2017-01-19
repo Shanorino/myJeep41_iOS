@@ -179,17 +179,64 @@
 #pragma mark -
 - (void)sendReply
 {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 处理耗时操作的代码块...
+        NSString *str = _toolbar.textView.text;
+        NSString *message = [NSString stringWithFormat:@"%@",str];
+        //[message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        UIImage *img = _toolbar.imgView.image;
+        NSLog(@"--replyStr-%@----",message);
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSLog(@"--replyUsr--%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
+        NSLog(@"--replyTopicID--%@---",_topicid);
+        //提交回复的三个参数 message, globaluserid, _topicid 用POST方法提交
+        id jsonData=[self requestDataFromServer:_topicid userid:appDelegate.globaluserid pcontent:message];
+        dispatch_async(dispatch_get_main_queue(), ^{
+        //回调或者说是通知主线程刷新
+            if(![jsonData isEqual:@""])
+            {
+                NSLog(@"回帖失败：%@",jsonData);
+            }
+            else
+                [[[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Reply Succeeded!"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil] show];
+            [self closeBtnClick];
+        });
+        
+    });
+}
+
+#pragma mark - 请求数据 解析JSON
+- (id) requestDataFromServer:(NSString*)topicid userid:(NSString*)userid pcontent:(NSString*)pcontent{
+    // 请求数据
+    NSString *jsonData = [self postSyn:[NSString stringWithFormat:@"http://www.myjeep41.com/reply_send.php"] tid:topicid uid:userid pct:pcontent];
+    return jsonData;
+    //解析
+    //NSError *error = nil;
+    //NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
+    //提交跟帖方法后得到
+    //id val=[dict objectForKey:@"result"];
     
-    NSString *str = _toolbar.textView.text;
-    NSString *message = [NSString stringWithFormat:@"%@",str];
-    UIImage *img = _toolbar.imgView.image;
-    
-    NSLog(@"--replyStr-%@----",message);
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"--replyUsr--%@---%@-",appDelegate.globalusername,appDelegate.globaluserid);
-    NSLog(@"--replyTopicID--%@---",_topicid);
-    //提交回复的三个参数 message, globaluserid, _topicid 用POST方法提交即可
-    [self closeBtnClick];
+}
+//同步post
+-(NSString *)postSyn:(NSString *)urlStr tid:(NSString *)topicid uid:(NSString *)userid pct:(NSString *)pcontent{
+    NSLog(@"post_begin");
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
+    [request setURL:[NSURL URLWithString:urlStr]]; //设置地址
+    [request setHTTPMethod:@"POST"]; //设置发送方式
+    [request setTimeoutInterval: 20]; //设置连接超时
+    //设置请求体
+    NSString *param=[NSString stringWithFormat:@"topicid=%@&userid=%@&pcontent=%@",topicid,userid,pcontent];
+    //把拼接后的字符串转换为data，设置请求体
+    request.HTTPBody=[param dataUsingEncoding:NSUTF8StringEncoding];
+    //发起连接，接受响应
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = [[NSError alloc] init] ;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&urlResponse
+                                                             error:&error];
+    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]; //返回数据，转码
+    NSLog(@"post_end");
+    return responseString;
 }
 
 @end
