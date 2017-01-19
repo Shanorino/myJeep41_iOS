@@ -25,7 +25,7 @@
 
 - (void) setupUI{
     WSLoginView *loginView = [[WSLoginView alloc] initWithFrame:self.view.bounds];
-    loginView.titleLabel.text = @"Login";
+    loginView.titleLabel.text = NSLocalizedString(@"Login", nil);
     [self.view addSubview:loginView];
     [loginView setClickBlock:^(NSString *textField1Text, NSString *textField2Text) {
         [self loginCheck:textField1Text password:textField2Text];
@@ -44,7 +44,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新
             if(data==nil){
-                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Wrong Username/Password"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login", nil) message:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Login_Wrong_Pass", nil)] delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
                 [alertV show];
             }
             else{
@@ -52,7 +52,7 @@
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 appDelegate.globaluserid = [data[0] objectForKey:@"userid"];
                 appDelegate.globalusername = [data[0] objectForKey:@"displayname"];
-                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Login Succeeded"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil];
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login", nil) message:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Login_Success", nil)] delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
                 [alertV show];
                 //记住我
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

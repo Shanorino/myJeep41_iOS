@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  HKPTimeLine
+
+  Created by Shane on 2017/1/19.
+  Copyright © 2017年 YHSoft. All rights reserved.
+*/
+"Menu_Login"="Sign in";
+"Menu_Logout"="Sign out";
+"Menu_Forum"="Forum";
+"Menu_About"="About";
+"Login_Username_Hint"="Input username here";
+"Login_Password_Hint"="Input password here";
+"Login_Success"="Login Succeeded!";
+"Login"="Login";
+"Login_Wrong_Pass"="Username/Password is not correct";
+"Forum_Reply_Hint"="Write your comment here";
+"Forum_Reply_Send"="Send";
+"Forum_Reply"="Comment";
+"Forum_Reply_Success"="Comment succeeded!";
+"Forum_List_Author"="Author";
+"Forum_List_Topics"="Topics";
+"Forum_List_Views"="Views";
+"Forum_List_Replies"="Posts";
+"Blog_List_Viewall"="Read All";
+"Blog_List_Collapse"="Collapse";

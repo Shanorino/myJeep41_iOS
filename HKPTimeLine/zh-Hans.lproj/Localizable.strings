@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  HKPTimeLine
+
+  Created by Shane on 2017/1/19.
+  Copyright © 2017年 YHSoft. All rights reserved.
+*/
+"Menu_Login"="登陆";
+"Menu_Logout"="注销";
+"Menu_Forum"="论坛";
+"Menu_About"="关于";
+"Login_Username_Hint"="在此输入账号";
+"Login_Password_Hint"="在此输入密码";
+"Login_Success"="登陆成功!";
+"Login"="登陆";
+"Login_Wrong_Pass"="用户名/密码错误";
+"Forum_Reply_Hint"="写出你的精彩评论";
+"Forum_Reply_Send"="发表";
+"Forum_Reply"="评论";
+"Forum_Reply_Success"="评论成功!";
+"Forum_List_Author"="作者";
+"Forum_List_Topics"="主题数";
+"Forum_List_Views"="点击率";
+"Forum_List_Replies"="楼层数";
+"Blog_List_Viewall"="查看全部";
+"Blog_List_Collapse"="收起";

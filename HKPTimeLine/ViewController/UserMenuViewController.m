@@ -25,11 +25,11 @@
     
     _dataArray = [[NSMutableArray alloc] init];
     if([self isLoggedin])
-        [_dataArray addObject:@"Log Out"];
+        [_dataArray addObject:NSLocalizedString(@"Menu_Logout", nil)];
     else
-        [_dataArray addObject:@"Account"];
-    [_dataArray addObject:@"Forume"];
-    [_dataArray addObject:@"About"];
+        [_dataArray addObject:NSLocalizedString(@"Menu_Login", nil)];
+    [_dataArray addObject:NSLocalizedString(@"Menu_Forum", nil)];
+    [_dataArray addObject:NSLocalizedString(@"Menu_About", nil)];
     
     [self initUI];
     

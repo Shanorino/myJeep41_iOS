@@ -198,7 +198,7 @@
                 NSLog(@"回帖失败：%@",jsonData);
             }
             else
-                [[[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Reply Succeeded!"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil] show];
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Forum_Reply", nil) message:[NSString stringWithFormat:@"%@",NSLocalizedString(@"Forum_Reply_Success", nil)] delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil, nil] show];
             [self closeBtnClick];
         });
         

@@ -113,7 +113,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.textField1.layer.borderWidth = .5;
     self.textField1.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.textField1.layer.borderColor = [UIColor grayColor].CGColor;
-    self.textField1.placeholder = @"请输入账号";
+    self.textField1.placeholder = NSLocalizedString(@"Login_Username_Hint", nil);
     self.textField1.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.textField1.frame), CGRectGetHeight(self.textField1.frame))];
     self.textField1.leftViewMode = UITextFieldViewModeAlways;
     UIImageView* imgUser = [[UIImageView alloc] initWithFrame:CGRectMake(9, 9, 22, 22)];
@@ -127,7 +127,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     self.textField2.layer.borderWidth = .5;
     self.textField2.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.textField2.layer.borderColor = [UIColor grayColor].CGColor;
-    self.textField2.placeholder = @"请输入密码";
+    self.textField2.placeholder = NSLocalizedString(@"Login_Password_Hint", nil);
     self.textField2.secureTextEntry = YES;
     self.textField2.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.textField2.frame), CGRectGetHeight(self.textField2.frame))];
     self.textField2.leftViewMode = UITextFieldViewModeAlways;
@@ -138,7 +138,7 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     
     
     self.loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, CGRectGetMaxY(self.textField2.frame)+10, smallView.frame.size.width-20, 40)];
-    [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [self.loginBtn setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
     self.loginBtn.layer.cornerRadius = 5;
     [self.loginBtn setBackgroundColor:[UIColor colorWithRed:83/255.0 green:149/255.0 blue:232/255.0 alpha:1]];
     [self.loginBtn addTarget:self action:@selector(LoginAction:) forControlEvents:UIControlEventTouchUpInside];

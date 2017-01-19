@@ -33,7 +33,7 @@
         CGFloat leftViewW = 200;
 
         UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(leftViewL, 0, leftViewW, leftViewH)];
-        nameLabel.text = @"说说你的看法";
+        nameLabel.text = NSLocalizedString(@"Forum_Reply_Hint", nil);
         nameLabel.font = [UIFont fontWithName:MPFONTNAME size:16];
         nameLabel.textColor = [UIColor lightGrayColor];
         [self addSubview:nameLabel];

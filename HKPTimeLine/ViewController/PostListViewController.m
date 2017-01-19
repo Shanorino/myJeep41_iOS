@@ -104,7 +104,7 @@
     NSString *click = [[_dataArray objectAtIndex: indexPath.row] objectForKey:@"topicopened"];
     NSString *repeat = [[_dataArray objectAtIndex: indexPath.row] objectForKey:@"postcount"];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"作者:%@  点击:%@  回复:%@",author,click,repeat];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@:%@  %@:%@  %@:%@",NSLocalizedString(@"Forum_List_Author", nil),author,NSLocalizedString(@"Forum_List_Views", nil),click,NSLocalizedString(@"Forum_List_Replies", nil),repeat];
     
     [cell.imageView setImage:[UIImage imageNamed:@"forumicon.png"]];
     return cell;

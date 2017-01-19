@@ -106,7 +106,7 @@
     
     NSString *postcount =[[[[_dataArray objectAtIndex: indexPath.section] objectForKey:@"subforum"] objectAtIndex:indexPath.row] objectForKey:@"postcount"];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"主题:%@  发帖:%@",topiccount,postcount];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@:%@  %@:%@",NSLocalizedString(@"Forum_List_Topics", nil),topiccount,NSLocalizedString(@"Forum_List_Replies", nil),postcount];
     [cell.imageView setImage:[UIImage imageNamed:@"forumicon.png"]];
     
     return cell;

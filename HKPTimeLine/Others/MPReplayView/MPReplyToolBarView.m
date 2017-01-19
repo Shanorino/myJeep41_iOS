@@ -98,7 +98,7 @@
 
             btn.titleLabel.font = [UIFont systemFontOfSize:15];
           
-            [btn setTitle:@"发表" forState:0];
+            [btn setTitle:NSLocalizedString(@"Forum_Reply_Send", nil) forState:0];
             [btn setTitleColor:[UIColor colorWithWhite:0.811 alpha:1.000] forState:UIControlStateDisabled];
             [btn setTitleColor:[UIColor whiteColor] forState:0];
 
@@ -141,7 +141,7 @@
     
     PlaceholderTextView *contentView = [[PlaceholderTextView alloc]initWithFrame:CGRectMake(0, 0, bgW,bgH)];
     contentView.font = [UIFont  systemFontOfSize:15];
-    contentView.placeholder = @"说说你的看法";
+    contentView.placeholder = NSLocalizedString(@"Forum_Reply_Hint", nil);
     contentView.placeholderColor = [UIColor lightGrayColor];
     contentView.placeholderFont = [UIFont  systemFontOfSize:15];
     contentView.backgroundColor = [UIColor whiteColor];

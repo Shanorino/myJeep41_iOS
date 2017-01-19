@@ -422,14 +422,14 @@ static const CGFloat deleteBtnHeight = 30;
     self.labelContent.text  = _model.msgContent;
     WeakSelf
     //查看详情按钮
-    self.labelMore.text     = @"查看全部";
+    self.labelMore.text     = NSLocalizedString(@"Blog_List_Viewall", nil);
     CGFloat moreBtnH = 0;
     if (_model.shouldShowMoreButton) { // 如果文字高度超过60
         moreBtnH = moreBtnHeight;
         
         if (_model.isOpening) { // 如果需要展开
             
-            _labelMore.text = @"收起";
+            _labelMore.text = NSLocalizedString(@"Blog_List_Collapse", nil);
             [self.labelContent mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(weakSelf.imgvAvatar.mas_bottom).offset(11);
                 make.left.equalTo(weakSelf.contentView).offset(10);
@@ -437,7 +437,7 @@ static const CGFloat deleteBtnHeight = 30;
                 make.bottom.equalTo(weakSelf.labelMore.mas_top).offset(-11);
             }];
         } else {
-            _labelMore.text = @"查看全部";
+            _labelMore.text = NSLocalizedString(@"Blog_List_Viewall", nil);
             [_labelContent mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(maxContentRepostLabelHeight);
                 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3416A9291E312AB400B7CD7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3416A92B1E312AB400B7CD7D /* InfoPlist.strings */; };
+		3416A9321E312EA700B7CD7D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3416A9341E312EA700B7CD7D /* Localizable.strings */; };
 		3457B5371E1550B1006A7443 /* libPods-HKPTimeLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3457B5341E154F14006A7443 /* libPods-HKPTimeLine.a */; };
 		8B0D16901E2D015700AED808 /* MPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D16891E2D015700AED808 /* MPBaseViewController.m */; };
 		8B0D16911E2D015700AED808 /* MPDetailBottomView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D168B1E2D015700AED808 /* MPDetailBottomView1.m */; };
@@ -72,6 +74,18 @@
 		341443EA1E14350F005C7716 /* Pods-HKPTimeLine */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Pods-HKPTimeLine"; path = "Pods/Target Support Files/Pods-HKPTimeLine"; sourceTree = "<group>"; };
 		341443EC1E14355D005C7716 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		341443EF1E143711005C7716 /* SDWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SDWebImage; path = Pods/Headers/Public/SDWebImage; sourceTree = "<group>"; };
+		3416A92A1E312AB400B7CD7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3416A92C1E312AC700B7CD7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3416A92D1E312C8C00B7CD7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		3416A92E1E312C8C00B7CD7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3416A92F1E312C8C00B7CD7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3416A9331E312EA700B7CD7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3416A9351E312EAA00B7CD7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3416A9361E312EAB00B7CD7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3416A9371E312F0700B7CD7D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		3416A9381E312F0700B7CD7D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3416A9391E312F0800B7CD7D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		3416A93A1E312F0800B7CD7D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3457B5341E154F14006A7443 /* libPods-HKPTimeLine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-HKPTimeLine.a"; path = "../../Users/shane/Library/Developer/Xcode/DerivedData/HKPTimeLine-aaqjnhyeucyxnhaqrifsbvwethkz/Build/Products/Debug-iphonesimulator/libPods-HKPTimeLine.a"; sourceTree = "<group>"; };
 		8B0D16881E2D015700AED808 /* MPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBaseViewController.h; sourceTree = "<group>"; };
 		8B0D16891E2D015700AED808 /* MPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBaseViewController.m; sourceTree = "<group>"; };
@@ -426,10 +440,12 @@
 				AC02FF2F1D8FDE5B003FD63E /* Model */,
 				AC02FF281D8FDE4C003FD63E /* ViewController */,
 				ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */,
+				3416A92B1E312AB400B7CD7D /* InfoPlist.strings */,
 				ACCC0B861D8FDBCF00ACFEBD /* Assets.xcassets */,
 				ACCC0B881D8FDBCF00ACFEBD /* LaunchScreen.storyboard */,
 				ACCC0B8B1D8FDBCF00ACFEBD /* Info.plist */,
 				ACCC0B7A1D8FDBCF00ACFEBD /* Supporting Files */,
+				3416A9341E312EA700B7CD7D /* Localizable.strings */,
 			);
 			path = HKPTimeLine;
 			sourceTree = "<group>";
@@ -488,6 +504,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				"zh-Hans",
 			);
 			mainGroup = ACCC0B6E1D8FDBCF00ACFEBD;
 			productRefGroup = ACCC0B781D8FDBCF00ACFEBD /* Products */;
@@ -505,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE559871E2524C400F72F08 /* iconfont-password.png in Resources */,
+				3416A9321E312EA700B7CD7D /* Localizable.strings in Resources */,
 				8BE559851E2524C400F72F08 /* bg.jpeg in Resources */,
 				8BBC94321DE72AA200C2CD26 /* Main.storyboard in Resources */,
 				8BE559891E2524C400F72F08 /* owl-login-arm-left@2x.png in Resources */,
@@ -513,6 +532,7 @@
 				8BE559861E2524C400F72F08 /* icon_hand.png in Resources */,
 				8BE5598A1E2524C400F72F08 /* owl-login-arm-right@2x.png in Resources */,
 				8BE559881E2524C400F72F08 /* iconfont-user.png in Resources */,
+				3416A9291E312AB400B7CD7D /* InfoPlist.strings in Resources */,
 				8BE5598B1E2524C400F72F08 /* owl-login@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,10 +643,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3416A92B1E312AB400B7CD7D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3416A92A1E312AB400B7CD7D /* Base */,
+				3416A92C1E312AC700B7CD7D /* en */,
+				3416A92F1E312C8C00B7CD7D /* de */,
+				3416A9391E312F0800B7CD7D /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3416A9341E312EA700B7CD7D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3416A9331E312EA700B7CD7D /* Base */,
+				3416A9351E312EAA00B7CD7D /* en */,
+				3416A9361E312EAB00B7CD7D /* de */,
+				3416A93A1E312F0800B7CD7D /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ACCC0B841D8FDBCF00ACFEBD /* Base */,
+				3416A92D1E312C8C00B7CD7D /* de */,
+				3416A9371E312F0700B7CD7D /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -635,6 +680,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				ACCC0B891D8FDBCF00ACFEBD /* Base */,
+				3416A92E1E312C8C00B7CD7D /* de */,
+				3416A9381E312F0700B7CD7D /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -646,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -693,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
