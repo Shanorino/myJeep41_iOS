@@ -18,6 +18,7 @@
 "Forum_Reply_Send"="Send";
 "Forum_Reply"="Comment";
 "Forum_Reply_Success"="Comment succeeded!";
+"Forum_Reply_Pleaselogin"="Please sign in first!";
 "Forum_List_Author"="Author";
 "Forum_List_Topics"="Topics";
 "Forum_List_Views"="Views";

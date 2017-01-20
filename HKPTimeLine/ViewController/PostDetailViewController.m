@@ -248,7 +248,7 @@
         [self presentViewController:vc animated:NO completion:nil];
     }
     else
-        [[[UIAlertView alloc] initWithTitle:@"登陆按钮" message:[NSString stringWithFormat:@"%@",@"Please Log In First"] delegate:nil cancelButtonTitle:@"确定"otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Forum_Reply", nil) message:NSLocalizedString(@"Forum_Reply_Pleaselogin", nil) delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil, nil] show];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

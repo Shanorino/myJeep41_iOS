@@ -42,13 +42,18 @@
         NSString *language = [NSLocale preferredLanguages].firstObject;
         if ([language hasPrefix:@"en"]) {
             language = @"en";
-        } else if ([language hasPrefix:@"zh"]) {
+        }
+        else if ([language hasPrefix:@"zh"]) {
             if ([language rangeOfString:@"Hans"].location != NSNotFound) {
                 language = @"zh-Hans"; // 简体中文
             } else { // zh-Hant\zh-HK\zh-TW
                 language = @"zh-Hant"; // 繁體中文
             }
-        } else {
+        }
+        else if ([language hasPrefix:@"de"]) {
+            language = @"de";
+        }
+        else {
             language = @"en";
         }
         

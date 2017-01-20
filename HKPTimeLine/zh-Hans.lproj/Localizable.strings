@@ -18,6 +18,7 @@
 "Forum_Reply_Send"="发表";
 "Forum_Reply"="评论";
 "Forum_Reply_Success"="评论成功!";
+"Forum_Reply_Pleaselogin"="请先登陆后再回复!";
 "Forum_List_Author"="作者";
 "Forum_List_Topics"="主题数";
 "Forum_List_Views"="点击率";

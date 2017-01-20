@@ -18,6 +18,7 @@
 "Forum_Reply_Send"="Senden";
 "Forum_Reply"="Kommentar";
 "Forum_Reply_Success"="Der Kommentar wurde gepostet!";
+"Forum_Reply_Pleaselogin"="Bitte zuerst einloggen!";
 "Forum_List_Author"="Author";
 "Forum_List_Topics"="Thema";
 "Forum_List_Views"="Aufrufe";
