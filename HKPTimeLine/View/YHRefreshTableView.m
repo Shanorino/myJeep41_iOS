@@ -234,7 +234,7 @@
             
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(60, 0, 100, 20)];
-            label.text = @"加载中...";
+            label.text = NSLocalizedString(@"Blog_List_Loading", nil);
             label.font = [UIFont systemFontOfSize:13.0];
             label.textColor = [UIColor blackColor];
             label.backgroundColor   = [UIColor clearColor];

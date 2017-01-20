@@ -141,7 +141,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:TRUE];
     [self viewDidLoad];
-    //NSLog(@"从登陆返回");
+    NSLog(@"从登陆返回刷新抽屉菜单");
 }
 /*
 #pragma mark - Navigation
