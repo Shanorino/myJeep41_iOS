@@ -127,7 +127,7 @@
                 }];
         }
         else{
-            return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopicFollow" configuration:^(CellForTopicFollow *cell) {
+            return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopicFollow" configuration:^(CellForTopicFollow *cell) { //(CellForTopicFollow *cell)
                 [self configureOriCell:cell atIndexPath:indexPath];
             }];
         }

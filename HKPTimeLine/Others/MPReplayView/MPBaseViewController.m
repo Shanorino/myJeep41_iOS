@@ -47,7 +47,8 @@
 - (UIButton *)rl_BarBtnWithTitle:(NSString *)titleStr
 {
     UIFont *titleFont = [UIFont systemFontOfSize:16];
-    CGSize titleSize = [titleStr sizeWithFont:titleFont constrainedToSize:CGSizeMake(MAXFLOAT, 30)];
+    NSDictionary *attribute = @{NSFontAttributeName: titleFont};
+    CGSize titleSize = [titleStr boundingRectWithSize:CGSizeMake(MAXFLOAT, 30) options: NSStringDrawingTruncatesLastVisibleLine attributes:attribute context:nil].size;//sizeWithFont:titleFont constrainedToSize:CGSizeMake(MAXFLOAT, 30)];
     
     UIButton *rightBarBtn = [self getButton];
     rightBarBtn.frame = CGRectMake(0, 0, titleSize.width, base_navItemH);

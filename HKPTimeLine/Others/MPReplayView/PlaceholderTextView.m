@@ -31,7 +31,7 @@
 
 
 - (void)awakeFromNib {
-   
+    [super awakeFromNib];
     
     [MPNotificationCenter addObserver:self selector:@selector(DidChange:) name:UITextViewTextDidChangeNotification object:self];
     
@@ -58,7 +58,7 @@
     }
     
     self.maxTextLength=1000;
-
+    
 }
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

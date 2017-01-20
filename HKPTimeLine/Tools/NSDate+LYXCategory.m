@@ -48,7 +48,7 @@
     
     NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *dateObj=[formatter dateFromString:[NSString stringWithFormat:@"%4d-%2d-%2d %2d:%2d:%2d",year,month,date,hour,minute,second]];
+    NSDate *dateObj=[formatter dateFromString:[NSString stringWithFormat:@"%4ld-%2ld-%2ld %2ld:%2ld:%2ld",(long)year,(long)month,(long)date,(long)hour,(long)minute,(long)second]];
     return dateObj;
 }
 
