@@ -172,6 +172,12 @@ typedef NS_ENUM(NSInteger, WSLoginShowType) {
     [self.window resignFirstResponder];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+        //用户结束输入
+        [textField  resignFirstResponder];
+        return  YES;
+}
+
 //猫咪动画
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if ([textField isEqual:self.textField1]) {
