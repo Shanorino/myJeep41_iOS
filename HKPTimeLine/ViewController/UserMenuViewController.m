@@ -128,18 +128,29 @@
         default:
             break;
     }
+    if(view!=nil){
+        //当我们push成功之后，关闭我们的抽屉
+        [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+            //设置打开抽屉模式为MMOpenDrawerGestureModeNone，也就是没有任何效果。
+            [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+        }];
+    	//拿到我们的LitterLCenterViewController，让它去push
+        //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.mm_drawerController.centerViewController];
+        UINavigationController *nav = (UINavigationController*)self.mm_drawerController.centerViewController;
+        [nav pushViewController:view animated:NO];
+        
+    }
+    else{
+        [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+            //设置打开抽屉模式为MMOpenDrawerGestureModeNone，也就是没有任何效果。
+            [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+        }];
+        NSLog(@"Logged out,data cleared");
+    }
     
-    //拿到我们的LitterLCenterViewController，让它去push
-    UINavigationController* nav = (UINavigationController*)self.mm_drawerController.centerViewController;
-    [nav pushViewController:view animated:NO];
-    //当我们push成功之后，关闭我们的抽屉
-    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
-        //设置打开抽屉模式为MMOpenDrawerGestureModeNone，也就是没有任何效果。
-        [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-    }];
 }
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:TRUE];
+    [super viewWillAppear:NO];
     [self viewDidLoad];
     NSLog(@"从登陆返回刷新抽屉菜单");
 }

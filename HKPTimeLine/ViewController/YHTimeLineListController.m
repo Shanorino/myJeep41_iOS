@@ -35,6 +35,7 @@
 
 
 - (void)viewDidLoad{
+    [super viewDidLoad];
     [self initUI];
     [self requestDataLoadNew:YES];
     self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc]initWithTarget:self action:@selector(leftBtn)];
@@ -206,7 +207,7 @@
 - (void)requestDataLoadNew:(BOOL)loadNew{
     YHRefreshType refreshType;
     if (loadNew) {
-        _currentRequestPage = 0;
+        _currentRequestPage = 1;
         refreshType = YHRefreshType_LoadNew;
         [self.tableView setNoMoreData:NO];
     }
