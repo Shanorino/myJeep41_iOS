@@ -142,17 +142,12 @@
         
         CGFloat padding = 20;
         CGFloat width = self.tableView.frame.size.width - padding * 2;
-        //CGSize size;
-        //------
-        //NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica" size:13], NSFontAttributeName,nil, NSForegroundColorAttributeName,nil];
-        //NSMutableAttributedString *string =[[NSMutableAttributedString alloc] initWithString: content attributes:attributesDictionary];
-        //CGSize msgWH = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
-        //-------
         UIFont * tfont = [UIFont systemFontOfSize:13];
         CGSize size =CGSizeMake(width,CGFLOAT_MAX);
         NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:tfont,NSFontAttributeName,nil];
         CGSize  actualsize =[content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin  attributes:tdic context:nil].size;
-        return actualsize.height+100;
+        //NSLog( @"Cellheight: %@", [NSString stringWithFormat:@"%f",actualsize.height]);
+        return MAX(actualsize.height+100,40);
     }
 }
 
