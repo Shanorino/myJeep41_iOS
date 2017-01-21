@@ -34,6 +34,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setupUI];
     [self requestDataLoadNew:_topicId];
     [self initFootView];
@@ -120,7 +121,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (indexPath.row < self.dataArray.count) {
+    if (indexPath.row < self.dataArray.count && 1>2) {
         if(indexPath.row == 0){
             return [self.tableView fd_heightForCellWithIdentifier:@"CellForTopic" configuration:^(CellForTopic *cell) {
                 [self configureOriCell:cell atIndexPath:indexPath];
@@ -132,8 +133,26 @@
             }];
         }
     }
-    else{
-        return 20.0f;
+    //else{
+    //    return 20.0f;
+    //}
+    else {
+        CGFloat result = 16;
+        NSString* content = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"postcontent"];
+        
+        CGFloat padding = 20;
+        CGFloat width = self.tableView.frame.size.width - padding * 2;
+        //CGSize size;
+        //------
+        //NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica" size:13], NSFontAttributeName,nil, NSForegroundColorAttributeName,nil];
+        //NSMutableAttributedString *string =[[NSMutableAttributedString alloc] initWithString: content attributes:attributesDictionary];
+        //CGSize msgWH = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+        //-------
+        UIFont * tfont = [UIFont systemFontOfSize:13];
+        CGSize size =CGSizeMake(width,CGFLOAT_MAX);
+        NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:tfont,NSFontAttributeName,nil];
+        CGSize  actualsize =[content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin  attributes:tdic context:nil].size;
+        return actualsize.height+100;
     }
 }
 
