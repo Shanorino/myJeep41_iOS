@@ -137,17 +137,16 @@
     //    return 20.0f;
     //}
     else {
-        CGFloat result = 16;
         NSString* content = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"postcontent"];
         
-        CGFloat padding = 20;
+        CGFloat padding = 13;
         CGFloat width = self.tableView.frame.size.width - padding * 2;
-        UIFont * tfont = [UIFont systemFontOfSize:13];
+        UIFont * tfont = [UIFont systemFontOfSize:14];
         CGSize size =CGSizeMake(width,CGFLOAT_MAX);
         NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:tfont,NSFontAttributeName,nil];
         CGSize  actualsize =[content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin  attributes:tdic context:nil].size;
         //NSLog( @"Cellheight: %@", [NSString stringWithFormat:@"%f",actualsize.height]);
-        return MAX(actualsize.height+100,40);
+        return MAX(actualsize.height+70,150);
     }
 }
 
