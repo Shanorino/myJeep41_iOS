@@ -44,10 +44,10 @@
     
     
     UIImageView *appImg = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"app_launch.png"]];
-    appImg.frame = CGRectMake((self.view.bounds.size.width - appImg.bounds.size.width)/2,
-                              100
-                              , appImg.bounds.size.width, appImg.bounds.size.height);
-    UILabel *version = [[UILabel alloc] initWithFrame:CGRectMake(0, appImg.frame.origin.y+appImg.bounds.size.height, self.view.bounds.size.width, 50)];
+    appImg.frame = CGRectMake(0,
+                              0
+                              , self.view.bounds.size.width, self.view.bounds.size.height);
+    UILabel *version = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, 50)];
     version.text = @"myJeep41 v0.1";
     version.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:appImg];
